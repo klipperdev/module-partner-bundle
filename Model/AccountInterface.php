@@ -13,7 +13,6 @@ namespace Klipper\Module\PartnerBundle\Model;
 
 use Klipper\Component\DoctrineChoice\Model\ChoiceInterface;
 use Klipper\Component\Geocoder\Model\Traits\AddressInterface;
-use Klipper\Component\Model\Traits\NameableInterface;
 use Klipper\Component\Model\Traits\OrganizationalRequiredInterface;
 use Klipper\Component\Model\Traits\OwnerableInterface;
 use Klipper\Component\Model\Traits\TimestampableInterface;
@@ -27,36 +26,20 @@ use Klipper\Contracts\Model\IdInterface;
  */
 interface AccountInterface extends
     AddressInterface,
+    CompanyInterface,
     IdInterface,
-    NameableInterface,
     OrganizationalRequiredInterface,
     OwnerableInterface,
+    PersonInterface,
     TimestampableInterface,
     UserTrackableInterface
 {
-    public function getWebsiteUrl(): ?string;
+    public function isPersonalAccount(): ?bool;
 
-    public function setWebsiteUrl(?string $websiteUrl): self;
-
-    public function getEmail(): ?string;
-
-    public function setEmail(?string $email): self;
-
-    public function getPhone(): ?string;
-
-    public function setPhone(?string $phone): self;
-
-    public function getFax(): ?string;
-
-    public function setFax(?string $fax): self;
-
-    public function getSiret(): ?string;
-
-    public function setSiret(?string $siret): self;
-
-    public function getNumberVat(): ?string;
-
-    public function setNumberVat(?string $numberVat): self;
+    /**
+     * @return static
+     */
+    public function setPersonalAccount(bool $personalAccount);
 
     public function getAccountNumber(): ?string;
 
@@ -64,18 +47,6 @@ interface AccountInterface extends
      * @return static
      */
     public function setAccountNumber(?string $accountNumber);
-
-    public function getAnnualRevenue(): ?float;
-
-    public function setAnnualRevenue(?float $annualRevenue): self;
-
-    public function getMasterAccount(): ?AccountInterface;
-
-    public function setMasterAccount(?AccountInterface $masterAccount): self;
-
-    public function getBusinessType(): ?ChoiceInterface;
-
-    public function setBusinessType(?ChoiceInterface $businessType): self;
 
     public function getDeliveryMethod(): ?ChoiceInterface;
 

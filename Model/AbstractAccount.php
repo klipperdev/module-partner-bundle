@@ -144,6 +144,26 @@ abstract class AbstractAccount implements AccountInterface
      *
      * @Serializer\Expose
      */
+    protected ?string $siret = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @Assert\Type(type="string")
+     * @Assert\Length(max=255)
+     *
+     * @Serializer\Expose
+     */
+    protected ?string $numberVat = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @Assert\Type(type="string")
+     * @Assert\Length(max=255)
+     *
+     * @Serializer\Expose
+     */
     protected ?string $accountNumber = null;
 
     /**
@@ -163,11 +183,50 @@ abstract class AbstractAccount implements AccountInterface
     protected ?AccountInterface $masterAccount = null;
 
     /**
+     * @ORM\Column(type="boolean")
+     *
+     * @Assert\Type(type="boolean")
+     *
+     * @Serializer\Expose
+     */
+    protected bool $customer = false;
+
+    /**
+     * @ORM\Column(type="boolean")
+     *
+     * @Assert\Type(type="boolean")
+     *
+     * @Serializer\Expose
+     */
+    protected bool $supplier = false;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Choice")
      *
      * @Serializer\Expose
      */
     protected ?ChoiceInterface $businessType = null;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Choice")
+     *
+     * @Serializer\Expose
+     */
+    protected ?ChoiceInterface $deliveryMethod = null;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Choice")
+     *
+     * @Serializer\Expose
+     */
+    protected ?ChoiceInterface $paymentTerms = null;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Choice")
+     *
+     * @Serializer\Expose
+     */
+    protected ?ChoiceInterface $purchasePaymentTerms = null;
 
     public function getWebsiteUrl(): ?string
     {
@@ -217,6 +276,30 @@ abstract class AbstractAccount implements AccountInterface
         return $this;
     }
 
+    public function getSiret(): ?string
+    {
+        return $this->siret;
+    }
+
+    public function setSiret(?string $siret): self
+    {
+        $this->siret = $siret;
+
+        return $this;
+    }
+
+    public function getNumberVat(): ?string
+    {
+        return $this->numberVat;
+    }
+
+    public function setNumberVat(?string $numberVat): self
+    {
+        $this->numberVat = $numberVat;
+
+        return $this;
+    }
+
     public function getAccountNumber(): ?string
     {
         return $this->accountNumber;
@@ -253,6 +336,30 @@ abstract class AbstractAccount implements AccountInterface
         return $this;
     }
 
+    public function setCustomer(bool $customer): self
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    public function isCustomer(): bool
+    {
+        return $this->customer;
+    }
+
+    public function setSupplier(bool $supplier): self
+    {
+        $this->supplier = $supplier;
+
+        return $this;
+    }
+
+    public function isSupplier(): bool
+    {
+        return $this->supplier;
+    }
+
     public function getBusinessType(): ?ChoiceInterface
     {
         return $this->businessType;
@@ -261,6 +368,42 @@ abstract class AbstractAccount implements AccountInterface
     public function setBusinessType(?ChoiceInterface $businessType): self
     {
         $this->businessType = $businessType;
+
+        return $this;
+    }
+
+    public function getDeliveryMethod(): ?ChoiceInterface
+    {
+        return $this->deliveryMethod;
+    }
+
+    public function setDeliveryMethod(?ChoiceInterface $deliveryMethod): self
+    {
+        $this->deliveryMethod = $deliveryMethod;
+
+        return $this;
+    }
+
+    public function getPaymentTerms(): ?ChoiceInterface
+    {
+        return $this->paymentTerms;
+    }
+
+    public function setPaymentTerms(?ChoiceInterface $paymentTerms): self
+    {
+        $this->paymentTerms = $paymentTerms;
+
+        return $this;
+    }
+
+    public function getPurchasePaymentTerms(): ?ChoiceInterface
+    {
+        return $this->purchasePaymentTerms;
+    }
+
+    public function setPurchasePaymentTerms(?ChoiceInterface $purchasePaymentTerms): self
+    {
+        $this->purchasePaymentTerms = $purchasePaymentTerms;
 
         return $this;
     }

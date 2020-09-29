@@ -50,6 +50,14 @@ interface AccountInterface extends
 
     public function setFax(?string $fax): self;
 
+    public function getSiret(): ?string;
+
+    public function setSiret(?string $siret): self;
+
+    public function getNumberVat(): ?string;
+
+    public function setNumberVat(?string $numberVat): self;
+
     public function getAccountNumber(): ?string;
 
     public function setAccountNumber(?string $accountNumber): self;
@@ -65,4 +73,16 @@ interface AccountInterface extends
     public function getBusinessType(): ?ChoiceInterface;
 
     public function setBusinessType(?ChoiceInterface $businessType): self;
+
+    public function getDeliveryMethod(): ?ChoiceInterface;
+
+    public function setDeliveryMethod(?ChoiceInterface $deliveryMethod): self;
+
+    public function getPaymentTerms(): ?ChoiceInterface;
+
+    public function setPaymentTerms(?ChoiceInterface $paymentTerms): self;
+
+    public function getPurchasePaymentTerms(): ?ChoiceInterface;
+
+    public function setPurchasePaymentTerms(?ChoiceInterface $purchasePaymentTerms): self;
 }

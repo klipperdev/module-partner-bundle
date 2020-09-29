@@ -37,5 +37,5 @@ trait AccountableRequiredTrait
      * @Serializer\Expose
      * @Serializer\ReadOnly
      */
-    protected ?AccountInterface $account;
+    protected ?AccountInterface $account = null;
 }

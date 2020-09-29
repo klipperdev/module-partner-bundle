@@ -1,0 +1,5 @@
+account_business_type:
+    -   value: other
+        label: Other
+        translations:
+            fr: { label: Autre }

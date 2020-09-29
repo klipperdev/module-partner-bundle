@@ -20,6 +20,7 @@ use Klipper\Component\Model\Traits\OrganizationalRequiredTrait;
 use Klipper\Component\Model\Traits\OwnerableTrait;
 use Klipper\Component\Model\Traits\TimestampableTrait;
 use Klipper\Component\Model\Traits\UserTrackableTrait;
+use Klipper\Module\PartnerBundle\Model\Traits\PersonTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -33,8 +34,18 @@ abstract class AbstractAccount implements AccountInterface
     use NameableTrait;
     use OrganizationalRequiredTrait;
     use OwnerableTrait;
+    use PersonTrait;
     use TimestampableTrait;
     use UserTrackableTrait;
+
+    /**
+     * @ORM\Column(type="boolean")
+     *
+     * @Assert\Type(type="boolean")
+     *
+     * @Serializer\Expose
+     */
+    protected bool $personalAccount = false;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -95,46 +106,6 @@ abstract class AbstractAccount implements AccountInterface
      * @Serializer\Expose
      */
     protected ?string $country = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     *
-     * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="255")
-     *
-     * @Serializer\Expose
-     */
-    protected ?string $websiteUrl = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     *
-     * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="255")
-     *
-     * @Serializer\Expose
-     */
-    protected ?string $email = null;
-
-    /**
-     * @ORM\Column(type="string", length=80, nullable=true)
-     *
-     * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="80")
-     *
-     * @Serializer\Expose
-     */
-    protected ?string $phone = null;
-
-    /**
-     * @ORM\Column(type="string", length=80, nullable=true)
-     *
-     * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="80")
-     *
-     * @Serializer\Expose
-     */
-    protected ?string $fax = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -228,50 +199,14 @@ abstract class AbstractAccount implements AccountInterface
      */
     protected ?ChoiceInterface $purchasePaymentTerms = null;
 
-    public function getWebsiteUrl(): ?string
+    public function isPersonalAccount(): ?bool
     {
-        return $this->websiteUrl;
+        return $this->personalAccount;
     }
 
-    public function setWebsiteUrl(?string $websiteUrl): self
+    public function setPersonalAccount(bool $personalAccount): self
     {
-        $this->websiteUrl = $websiteUrl;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(?string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    public function getPhone(): ?string
-    {
-        return $this->phone;
-    }
-
-    public function setPhone(?string $phone): self
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    public function getFax(): ?string
-    {
-        return $this->fax;
-    }
-
-    public function setFax(?string $fax): self
-    {
-        $this->fax = $fax;
+        $this->personalAccount = $personalAccount;
 
         return $this;
     }

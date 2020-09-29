@@ -201,28 +201,28 @@ abstract class AbstractAccount implements AccountInterface
     protected bool $supplier = false;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Choice")
+     * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface")
      *
      * @Serializer\Expose
      */
     protected ?ChoiceInterface $businessType = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Choice")
+     * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface")
      *
      * @Serializer\Expose
      */
     protected ?ChoiceInterface $deliveryMethod = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Choice")
+     * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface")
      *
      * @Serializer\Expose
      */
     protected ?ChoiceInterface $paymentTerms = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Choice")
+     * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface")
      *
      * @Serializer\Expose
      */

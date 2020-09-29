@@ -60,7 +60,10 @@ interface AccountInterface extends
 
     public function getAccountNumber(): ?string;
 
-    public function setAccountNumber(?string $accountNumber): self;
+    /**
+     * @return static
+     */
+    public function setAccountNumber(?string $accountNumber);
 
     public function getAnnualRevenue(): ?float;
 
@@ -76,13 +79,22 @@ interface AccountInterface extends
 
     public function getDeliveryMethod(): ?ChoiceInterface;
 
-    public function setDeliveryMethod(?ChoiceInterface $deliveryMethod): self;
+    /**
+     * @return static
+     */
+    public function setDeliveryMethod(?ChoiceInterface $deliveryMethod);
 
     public function getPaymentTerms(): ?ChoiceInterface;
 
-    public function setPaymentTerms(?ChoiceInterface $paymentTerms): self;
+    /**
+     * @return static
+     */
+    public function setPaymentTerms(?ChoiceInterface $paymentTerms);
 
     public function getPurchasePaymentTerms(): ?ChoiceInterface;
 
-    public function setPurchasePaymentTerms(?ChoiceInterface $purchasePaymentTerms): self;
+    /**
+     * @return static
+     */
+    public function setPurchasePaymentTerms(?ChoiceInterface $purchasePaymentTerms);
 }

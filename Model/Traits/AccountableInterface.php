@@ -22,7 +22,10 @@ interface AccountableInterface
 {
     public function getAccount(): ?AccountInterface;
 
-    public function setAccount(?AccountInterface $masterAccount): self;
+    /**
+     * @return static
+     */
+    public function setAccount(?AccountInterface $masterAccount);
 
     /**
      * @return null|int|string

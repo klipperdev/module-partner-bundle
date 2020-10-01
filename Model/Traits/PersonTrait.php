@@ -14,6 +14,7 @@ namespace Klipper\Module\PartnerBundle\Model\Traits;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
 use Klipper\Component\DoctrineChoice\Model\ChoiceInterface;
+use Klipper\Component\DoctrineChoice\Validator\Constraints\EntityDoctrineChoice;
 use Klipper\Component\Phone\Validator\Constraints\Phone as AssertPhone;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -24,6 +25,8 @@ trait PersonTrait
 {
     /**
      * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface")
+     *
+     * @EntityDoctrineChoice("person_salutation")
      *
      * @Serializer\Expose
      */

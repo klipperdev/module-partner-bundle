@@ -14,6 +14,7 @@ namespace Klipper\Module\PartnerBundle\Model;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
 use Klipper\Component\DoctrineChoice\Model\ChoiceInterface;
+use Klipper\Component\DoctrineChoice\Validator\Constraints\EntityDoctrineChoice;
 use Klipper\Component\Geocoder\Model\Traits\AddressTrait;
 use Klipper\Component\Model\Traits\EmailableTrait;
 use Klipper\Component\Model\Traits\LabelableTrait;
@@ -98,6 +99,8 @@ abstract class AbstractPartnerAddress implements PartnerAddressInterface
 
     /**
      * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface")
+     *
+     * @EntityDoctrineChoice("partner_address_type")
      *
      * @Serializer\Expose
      */

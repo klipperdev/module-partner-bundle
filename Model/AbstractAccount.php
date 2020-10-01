@@ -14,6 +14,7 @@ namespace Klipper\Module\PartnerBundle\Model;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
 use Klipper\Component\DoctrineChoice\Model\ChoiceInterface;
+use Klipper\Component\DoctrineChoice\Validator\Constraints\EntityDoctrineChoice;
 use Klipper\Component\Geocoder\Model\Traits\AddressTrait;
 use Klipper\Component\Model\Traits\NameableTrait;
 use Klipper\Component\Model\Traits\OrganizationalRequiredTrait;
@@ -174,12 +175,16 @@ abstract class AbstractAccount implements AccountInterface
     /**
      * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface")
      *
+     * @EntityDoctrineChoice("account_business_type")
+     *
      * @Serializer\Expose
      */
     protected ?ChoiceInterface $businessType = null;
 
     /**
      * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface")
+     *
+     * @EntityDoctrineChoice("account_delivery_method")
      *
      * @Serializer\Expose
      */
@@ -188,12 +193,16 @@ abstract class AbstractAccount implements AccountInterface
     /**
      * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface")
      *
+     * @EntityDoctrineChoice("account_payment_terms")
+     *
      * @Serializer\Expose
      */
     protected ?ChoiceInterface $paymentTerms = null;
 
     /**
      * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface")
+     *
+     * @EntityDoctrineChoice("account_purchase_payment_terms")
      *
      * @Serializer\Expose
      */

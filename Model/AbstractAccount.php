@@ -49,6 +49,20 @@ abstract class AbstractAccount implements AccountInterface
     protected bool $personalAccount = false;
 
     /**
+     * @ORM\OneToOne(
+     *     targetEntity="Klipper\Module\PartnerBundle\Model\ContactInterface",
+     *     inversedBy="personalAccount",
+     *     fetch="EXTRA_LAZY",
+     *     cascade={"persist", "remove"}
+     * )
+     * @ORM\JoinColumn(name="contact_id", referencedColumnName="id")
+     *
+     * @Serializer\MaxDepth(1)
+     * @Serializer\Expose
+     */
+    protected ?ContactInterface $personalContact = null;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @Assert\Type(type="string")
@@ -216,6 +230,18 @@ abstract class AbstractAccount implements AccountInterface
     public function setPersonalAccount(bool $personalAccount): self
     {
         $this->personalAccount = $personalAccount;
+
+        return $this;
+    }
+
+    public function getPersonalContact(): ?ContactInterface
+    {
+        return $this->personalContact;
+    }
+
+    public function setPersonalContact(?ContactInterface $personalContact): self
+    {
+        $this->personalContact = $personalContact;
 
         return $this;
     }

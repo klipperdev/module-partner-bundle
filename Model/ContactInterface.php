@@ -32,4 +32,10 @@ interface ContactInterface extends
     TimestampableInterface,
     UserTrackableInterface
 {
+    /**
+     * @return static
+     */
+    public function setPersonalAccount(?AccountInterface $personalAccount);
+
+    public function getPersonalAccount(): ?AccountInterface;
 }

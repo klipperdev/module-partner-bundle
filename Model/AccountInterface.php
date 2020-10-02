@@ -46,6 +46,13 @@ interface AccountInterface extends
     /**
      * @return static
      */
+    public function setPersonalContact(?ContactInterface $personalContact);
+
+    public function getPersonalContact(): ?ContactInterface;
+
+    /**
+     * @return static
+     */
     public function setAccountNumber(?string $accountNumber);
 
     public function getDeliveryMethod(): ?ChoiceInterface;

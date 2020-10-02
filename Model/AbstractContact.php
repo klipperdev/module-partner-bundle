@@ -11,6 +11,8 @@
 
 namespace Klipper\Module\PartnerBundle\Model;
 
+use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
 use Klipper\Component\Model\Traits\OrganizationalRequiredTrait;
 use Klipper\Component\Model\Traits\OwnerableTrait;
 use Klipper\Component\Model\Traits\TimestampableTrait;
@@ -31,4 +33,24 @@ abstract class AbstractContact implements ContactInterface
     use OwnerableTrait;
     use TimestampableTrait;
     use UserTrackableTrait;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Klipper\Module\PartnerBundle\Model\AccountInterface",  mappedBy="personalContact")
+     *
+     * @Serializer\MaxDepth(1)
+     * @Serializer\Expose
+     */
+    protected ?AccountInterface $personalAccount = null;
+
+    public function getPersonalAccount(): ?AccountInterface
+    {
+        return $this->personalAccount;
+    }
+
+    public function setPersonalAccount(?AccountInterface $personalAccount): self
+    {
+        $this->personalAccount = $personalAccount;
+
+        return $this;
+    }
 }

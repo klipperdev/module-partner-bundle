@@ -1,1 +1,7 @@
 klipper_partner.patnerable.account_or_contact_required: 'An account or contact is required'
+klipper_partner.orm_listener.account.personal_account_conversion_invalid: 'A personal account cannot be converted into an enterprise account'
+klipper_partner.orm_listener.account.enterprise_account_conversion_invalid: 'A enterprise account cannot be converted into an personal account'
+klipper_partner.orm_listener.account.enterprise_account_cannot_attached_personal_contact: 'An enterprise account cannot be associated with a personal contact'
+klipper_partner.orm_listener.contact.personal_account_conversion_invalid: 'A contact of a personal account cannot be converted into a contact'
+klipper_partner.orm_listener.contact.personal_account_detached_invalid: 'A contact of a personal account cannot be detached from the account'
+klipper_partner.orm_listener.contact.personal_contact_cannot_attached_enterprise_account: 'A personal contact cannot be attached to an enterprise account'

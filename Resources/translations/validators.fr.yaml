@@ -1,1 +1,7 @@
 klipper_partner.patnerable.account_or_contact_required: 'Un compte ou un contact est requis'
+klipper_partner.orm_listener.account.personal_account_conversion_invalid: 'Un compte personnel ne peut pas être converti en compte entreprise'
+klipper_partner.orm_listener.account.enterprise_account_conversion_invalid: 'Un compte entreprise ne peut pas être converti en compte personnel'
+klipper_partner.orm_listener.account.enterprise_account_cannot_attached_personal_contact: 'Un compte entreprise ne peut pas être associé à un contact personnel'
+klipper_partner.orm_listener.contact.personal_account_conversion_invalid: 'Un contact d''compte personnel ne peut pas être converti en contact'
+klipper_partner.orm_listener.contact.personal_account_detached_invalid: 'Un contact d''un compte personnel ne peut pas être détaché du compte'
+klipper_partner.orm_listener.contact.personal_contact_cannot_attached_enterprise_account: 'Un contact personnel ne peut pas être attaché à un compte entreprise'

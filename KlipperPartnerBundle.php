@@ -11,6 +11,8 @@
 
 namespace Klipper\Module\PartnerBundle;
 
+use Klipper\Module\PartnerBundle\DependencyInjection\Compiler\PersonalFieldMapperPass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
@@ -18,4 +20,8 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class KlipperPartnerBundle extends Bundle
 {
+    public function build(ContainerBuilder $container): void
+    {
+        $container->addCompilerPass(new PersonalFieldMapperPass());
+    }
 }

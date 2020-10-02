@@ -12,5 +12,10 @@
             <argument type="service" id="klipper_resource.object_factory" />
             <argument type="collection" />
         </service>
+
+        <service id="Klipper\Module\PartnerBundle\Mapper\DefaultPersonalFieldMapper"
+                 public="false">
+            <tag name="klipper_module_partner.personal_field_mapper" priority="100" />
+        </service>
     </services>
 </container>

@@ -143,6 +143,23 @@ trait PersonTrait
         return $this;
     }
 
+    /**
+     * @Serializer\SerializedName("full_name")
+     * @Serializer\VirtualProperty
+     */
+    public function getFullName(string $format = '{firstName} {lastName}'): ?string
+    {
+        $fullName = null;
+
+        if (null !== $this->firstName || null !== $this->lastName) {
+            $fullName = str_replace('{firstName}', $this->firstName, $format);
+            $fullName = str_replace('{lastName}', $this->lastName, $fullName);
+            $fullName = trim($fullName);
+        }
+
+        return $fullName;
+    }
+
     public function getEmail(): ?string
     {
         return $this->email;

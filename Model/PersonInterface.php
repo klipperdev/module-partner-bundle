@@ -43,6 +43,8 @@ interface PersonInterface
 
     public function getEmail(): ?string;
 
+    public function getFullName(string $format = '{firstName} {lastName}'): ?string;
+
     /**
      * @return static
      */

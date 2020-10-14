@@ -65,6 +65,7 @@ class MergePersonalAccountSubscriber implements EventSubscriber
                 if (null === $personalContact = $object->getPersonalContact()) {
                     /** @var ContactInterface $personalContact */
                     $personalContact = $this->objectFactory->create(ContactInterface::class);
+                    $event->getEntityManager()->getUnitOfWork()->persist($personalContact);
                     $object->setPersonalContact($personalContact);
                 }
 
@@ -129,7 +130,12 @@ class MergePersonalAccountSubscriber implements EventSubscriber
 
         if ($personalUpdated) {
             $meta = $em->getClassMetadata(ClassUtils::getClass($contact));
-            $uow->recomputeSingleEntityChangeSet($meta, $contact);
+
+            if (null === $contact->getId()) {
+                $uow->computeChangeSet($meta, $contact);
+            } else {
+                $uow->recomputeSingleEntityChangeSet($meta, $contact);
+            }
         }
     }
 
@@ -145,7 +151,12 @@ class MergePersonalAccountSubscriber implements EventSubscriber
 
         if ($personalUpdated) {
             $meta = $em->getClassMetadata(ClassUtils::getClass($account));
-            $uow->recomputeSingleEntityChangeSet($meta, $account);
+
+            if (null === $account->getId()) {
+                $uow->computeChangeSet($meta, $account);
+            } else {
+                $uow->recomputeSingleEntityChangeSet($meta, $account);
+            }
         }
     }
 }

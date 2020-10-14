@@ -23,12 +23,24 @@ class DefaultPersonalFieldMapper implements PersonalFieldMapperInterface
 {
     public function injectPersonalAccountFieldsToContact(EntityManagerInterface $em, AccountInterface $account, ContactInterface $contact): bool
     {
-        return $this->injectData($account, $contact);
+        $updated = $this->injectData($account, $contact);
+
+        if ($updated) {
+            $account->setName($contact->getFullName());
+        }
+
+        return $updated;
     }
 
     public function injectPersonalContactFieldsToAccount(EntityManagerInterface $em, ContactInterface $contact, AccountInterface $account): bool
     {
-        return $this->injectData($contact, $account);
+        $updated = $this->injectData($contact, $account);
+
+        if ($updated) {
+            $account->setName($contact->getFullName());
+        }
+
+        return $updated;
     }
 
     private function injectData(PersonInterface $source, PersonInterface $target): bool

@@ -40,6 +40,34 @@ abstract class AbstractAccount implements AccountInterface
     use UserTrackableTrait;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @Assert\Type(type="string")
+     * @Assert\Length(max=255)
+     * @Assert\Expression(
+     *     "this.IsPersonalAccount() || (value && !this.IsPersonalAccount())",
+     *     message="This value should not be blank."
+     * )
+     *
+     * @Serializer\Expose
+     */
+    protected ?string $name = null;
+
+    /**
+     * @ORM\Column(type="string", length=80, nullable=true)
+     *
+     * @Assert\Type(type="string")
+     * @Assert\Length(min="0", max="80")
+     * @Assert\Expression(
+     *     "!this.IsPersonalAccount() || (value && this.IsPersonalAccount())",
+     *     message="This value should not be blank."
+     * )
+     *
+     * @Serializer\Expose
+     */
+    protected ?string $lastName = null;
+
+    /**
      * @ORM\Column(type="boolean")
      *
      * @Assert\Type(type="boolean")

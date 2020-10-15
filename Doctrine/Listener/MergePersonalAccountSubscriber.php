@@ -13,7 +13,7 @@ namespace Klipper\Module\PartnerBundle\Doctrine\Listener;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Event\LifecycleEventArgs;
+use Doctrine\ORM\Event\OnFlushEventArgs;
 use Doctrine\ORM\Events;
 use Klipper\Component\DoctrineExtensionsExtra\Util\ListenerUtil;
 use Klipper\Component\DoctrineExtra\Util\ClassUtils;
@@ -46,8 +46,7 @@ class MergePersonalAccountSubscriber implements EventSubscriber
     public function getSubscribedEvents(): array
     {
         return [
-            Events::prePersist,
-            Events::preUpdate,
+            Events::onFlush,
         ];
     }
 
@@ -56,20 +55,32 @@ class MergePersonalAccountSubscriber implements EventSubscriber
         $this->mappers[] = $mapper;
     }
 
-    public function prePersist(LifecycleEventArgs $event): void
+    public function onFlush(OnFlushEventArgs $event): void
     {
-        $object = $event->getObject();
+        $em = $event->getEntityManager();
+        $uow = $em->getUnitOfWork();
 
+        foreach ($uow->getScheduledEntityInsertions() as $object) {
+            $this->persist($em, $object);
+        }
+
+        foreach ($uow->getScheduledEntityUpdates() as $object) {
+            $this->update($em, $object);
+        }
+    }
+
+    private function persist(EntityManagerInterface $em, object $object): void
+    {
         if ($object instanceof AccountInterface) {
             if ($object->isPersonalAccount()) {
                 if (null === $personalContact = $object->getPersonalContact()) {
                     /** @var ContactInterface $personalContact */
                     $personalContact = $this->objectFactory->create(ContactInterface::class);
-                    $event->getEntityManager()->getUnitOfWork()->persist($personalContact);
+                    $em->persist($personalContact);
                     $object->setPersonalContact($personalContact);
                 }
 
-                $this->updatePersonalContact($event->getEntityManager(), $object, $personalContact);
+                $this->updatePersonalContact($em, $object, $personalContact);
             } elseif (null !== $object->getPersonalContact()) {
                 ListenerUtil::thrownError('klipper_partner.orm_listener.account.enterprise_account_cannot_attached_personal_contact', $object);
             }
@@ -80,11 +91,9 @@ class MergePersonalAccountSubscriber implements EventSubscriber
         }
     }
 
-    public function preUpdate(LifecycleEventArgs $event): void
+    private function update(EntityManagerInterface $em, object $object): void
     {
-        $object = $event->getObject();
-        $om = $event->getEntityManager();
-        $uow = $om->getUnitOfWork();
+        $uow = $em->getUnitOfWork();
         $changeSet = $uow->getEntityChangeSet($object);
 
         if ($object instanceof AccountInterface) {
@@ -104,7 +113,7 @@ class MergePersonalAccountSubscriber implements EventSubscriber
                 }
 
                 if (null !== $personalContact = $object->getPersonalContact()) {
-                    $this->updatePersonalContact($om, $object, $personalContact);
+                    $this->updatePersonalContact($em, $object, $personalContact);
                 }
             }
         } elseif ($object instanceof ContactInterface) {
@@ -113,7 +122,7 @@ class MergePersonalAccountSubscriber implements EventSubscriber
             }
 
             if (null !== $personalAccount = $object->getPersonalAccount()) {
-                $this->updatePersonalAccount($om, $object, $personalAccount);
+                $this->updatePersonalAccount($em, $object, $personalAccount);
             }
         }
     }
@@ -131,10 +140,10 @@ class MergePersonalAccountSubscriber implements EventSubscriber
         if ($personalUpdated) {
             $meta = $em->getClassMetadata(ClassUtils::getClass($contact));
 
-            if (null === $contact->getId()) {
-                $uow->computeChangeSet($meta, $contact);
-            } else {
+            if ($uow->getEntityChangeSet($contact)) {
                 $uow->recomputeSingleEntityChangeSet($meta, $contact);
+            } else {
+                $uow->computeChangeSet($meta, $contact);
             }
         }
     }
@@ -152,10 +161,10 @@ class MergePersonalAccountSubscriber implements EventSubscriber
         if ($personalUpdated) {
             $meta = $em->getClassMetadata(ClassUtils::getClass($account));
 
-            if (null === $account->getId()) {
-                $uow->computeChangeSet($meta, $account);
-            } else {
+            if ($uow->getEntityChangeSet($contact)) {
                 $uow->recomputeSingleEntityChangeSet($meta, $account);
+            } else {
+                $uow->computeChangeSet($meta, $account);
             }
         }
     }

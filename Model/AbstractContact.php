@@ -17,8 +17,9 @@ use Klipper\Component\Model\Traits\OrganizationalRequiredTrait;
 use Klipper\Component\Model\Traits\OwnerableTrait;
 use Klipper\Component\Model\Traits\TimestampableTrait;
 use Klipper\Component\Model\Traits\UserTrackableTrait;
-use Klipper\Module\PartnerBundle\Model\Traits\AccountableRequiredTrait;
+use Klipper\Module\PartnerBundle\Model\Traits\AccountableOptionalTrait;
 use Klipper\Module\PartnerBundle\Model\Traits\PersonTrait;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Contact model.
@@ -28,19 +29,41 @@ use Klipper\Module\PartnerBundle\Model\Traits\PersonTrait;
 abstract class AbstractContact implements ContactInterface
 {
     use PersonTrait;
-    use AccountableRequiredTrait;
+    use AccountableOptionalTrait;
     use OrganizationalRequiredTrait;
     use OwnerableTrait;
     use TimestampableTrait;
     use UserTrackableTrait;
 
     /**
-     * @ORM\OneToOne(targetEntity="Klipper\Module\PartnerBundle\Model\AccountInterface",  mappedBy="personalContact")
+     * @ORM\OneToOne(
+     *     targetEntity="Klipper\Module\PartnerBundle\Model\AccountInterface",
+     *     mappedBy="personalContact",
+     *     cascade={"persist", "remove"}
+     * )
      *
-     * @Serializer\MaxDepth(1)
+     * @Serializer\Type("Relation")
      * @Serializer\Expose
+     * @Serializer\ReadOnly
      */
     protected ?AccountInterface $personalAccount = null;
+
+    /**
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Module\PartnerBundle\Model\AccountInterface",
+     *     fetch="EXTRA_LAZY"
+     * )
+     *
+     * @Assert\Expression(
+     *     "!(null === this.getPersonalAccount() && null === value)",
+     *     message="This value should not be null."
+     * )
+     *
+     * @Serializer\Type("Relation")
+     * @Serializer\Expose
+     * @Serializer\ReadOnly
+     */
+    protected ?AccountInterface $account = null;
 
     public function getPersonalAccount(): ?AccountInterface
     {

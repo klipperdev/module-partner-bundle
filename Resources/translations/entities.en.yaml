@@ -1,0 +1,38 @@
+# Account
+account.name: Account
+account.name.plural: Accounts
+account.fields.account_number: Account number
+account.fields.annual_revenue: Annual revenue
+account.fields.customer: Is a customer
+account.fields.first_name: First name
+account.fields.full_name: Full name
+account.fields.last_name: Last name
+account.fields.number_vat: Number VAT
+account.fields.personal_account: Is personal account
+account.fields.siret: Siret
+account.fields.supplier: Is a supplier
+account.fields.website_url: Website URL
+account.associations.business_type: Business type
+account.associations.delivery_method: Delivery method
+account.associations.master_account: Master account
+account.associations.personal_contact: Personal contact
+account.associations.payment_terms: Payment terms
+account.associations.purchase_payment_terms: Purchase payment terms
+account.associations.salutation: Salutation
+
+# Contact
+contact.name: Contact
+contact.name.plural: Contacts
+contact.fields.first_name: First name
+contact.fields.full_name: Full name
+contact.fields.last_name: Last name
+contact.associations.account: Account
+contact.associations.personal_account: Personal account
+contact.associations.salutation: Salutation
+
+# Partner address
+partner_address.name: Partner address
+partner_address.name.plural: Partner addresses
+partner_address.associations.account: Account
+partner_address.associations.contact: Contact
+partner_address.associations.type: Type

@@ -1,0 +1,38 @@
+# Account
+account.name: Compte
+account.name.plural: Comptes
+account.fields.account_number: Numéro du compte
+account.fields.annual_revenue: Revenue annuel
+account.fields.customer: Est un client
+account.fields.first_name: Prénom
+account.fields.full_name: Nom complet
+account.fields.last_name: Nom
+account.fields.number_vat: Numéro de TVA
+account.fields.personal_account: Est un compte personnel
+account.fields.siret: Siret
+account.fields.supplier: Est un fournisseur
+account.fields.website_url: Site internet
+account.associations.business_type: Type d'activité
+account.associations.delivery_method: Méthode de livraison
+account.associations.master_account: Compte principal
+account.associations.personal_contact: Contact personnel
+account.associations.payment_terms: Conditions de paiement
+account.associations.purchase_payment_terms: Conditions de paiement des achats
+account.associations.salutation: Civilité
+
+# Contact
+contact.name: Contact
+contact.name.plural: Contacts
+contact.fields.first_name: Prénom
+contact.fields.full_name: Nom complet
+contact.fields.last_name: Nom
+contact.associations.account: Compte
+contact.associations.personal_account: Compte personnel
+contact.associations.salutation: Civilité
+
+# Partner address
+partner_address.name: Adresse du contact
+partner_address.name.plural: Adresses du contact
+partner_address.associations.account: Compte
+partner_address.associations.contact: Contact
+partner_address.associations.type: Type

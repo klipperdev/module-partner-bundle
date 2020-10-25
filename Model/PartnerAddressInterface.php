@@ -14,10 +14,10 @@ namespace Klipper\Module\PartnerBundle\Model;
 use Klipper\Component\DoctrineChoice\Model\ChoiceInterface;
 use Klipper\Component\Geocoder\Model\Traits\AddressInterface;
 use Klipper\Component\Model\Traits\EmailableInterface;
+use Klipper\Component\Model\Traits\IdInterface;
 use Klipper\Component\Model\Traits\OrganizationalRequiredInterface;
 use Klipper\Component\Model\Traits\TimestampableInterface;
 use Klipper\Component\Model\Traits\UserTrackableInterface;
-use Klipper\Contracts\Model\IdInterface;
 use Klipper\Contracts\Model\LabelableInterface;
 use Klipper\Module\PartnerBundle\Model\Traits\PartnerableInterface;
 

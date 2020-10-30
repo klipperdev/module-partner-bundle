@@ -1,4 +1,158 @@
+person_salutation:
+    -   value: mr
+        label: Mr
+        translations:
+            fr: { label: Mr }
+    -   value: mrs
+        label: Mrs
+        translations:
+            fr: { label: Mme }
+
 account_business_type:
+    -   value: other
+        label: Other
+        translations:
+            fr: { label: Autre }
+
+account_delivery_method:
+    -   value: carrier
+        label: Carrier
+        translations:
+            fr: { label: Transporteur }
+    -   value: hand-delivery
+        label: Hand delivery
+        translations:
+            fr: { label: Remise en main propre }
+
+account_payment_terms:
+    -   value: 0-day
+        label: Immediate
+        translations:
+            fr: { label: Immédiat }
+    -   value: 0-day-end-month
+        label: End month
+        translations:
+            fr: { label: Fin de mois }
+    -   value: 7-days
+        label: 7 days
+        translations:
+            fr: { label: 7 jours }
+    -   value: 7-days-end-month
+        label: 7 days end month
+        translations:
+            fr: { label: 7 jours fin de mois }
+    -   value: 15-days
+        label: 15 days
+        translations:
+            fr: { label: 15 jours }
+    -   value: 15-days-end-month
+        label: 15 days end month
+        translations:
+            fr: { label: 15 jours fin de mois }
+    -   value: 30-days
+        label: 30 days
+        translations:
+            fr: { label: 30 jours }
+    -   value: 30-days-end-month
+        label: 30 days end month
+        translations:
+            fr: { label: 30 jours fin de mois }
+    -   value: 45-days
+        label: 45 days
+        translations:
+            fr: { label: 45 jours }
+    -   value: 45-days-end-month
+        label: 45 days end month
+        translations:
+            fr: { label: 45 jours fin de mois }
+    -   value: 60-days
+        label: 60 days
+        translations:
+            fr: { label: 60 jours }
+    -   value: 60-days-end-month
+        label: 60 days end month
+        translations:
+            fr: { label: 60 jours fin de mois }
+    -   value: 90-days
+        label: 90 days
+        translations:
+            fr: { label: 90 jours }
+    -   value: 90-days-end-month
+        label: 90 days end month
+        translations:
+            fr: { label: 90 jours fin de mois }
+
+account_purchase_payment_terms:
+    -   value: 0-day
+        label: Immediate
+        translations:
+            fr: { label: Immédiat }
+    -   value: 0-day-end-month
+        label: End month
+        translations:
+            fr: { label: Fin de mois }
+    -   value: 7-days
+        label: 7 days
+        translations:
+            fr: { label: 7 jours }
+    -   value: 7-days-end-month
+        label: 7 days end month
+        translations:
+            fr: { label: 7 jours fin de mois }
+    -   value: 15-days
+        label: 15 days
+        translations:
+            fr: { label: 15 jours }
+    -   value: 15-days-end-month
+        label: 15 days end month
+        translations:
+            fr: { label: 15 jours fin de mois }
+    -   value: 30-days
+        label: 30 days
+        translations:
+            fr: { label: 30 jours }
+    -   value: 30-days-end-month
+        label: 30 days end month
+        translations:
+            fr: { label: 30 jours fin de mois }
+    -   value: 45-days
+        label: 45 days
+        translations:
+            fr: { label: 45 jours }
+    -   value: 45-days-end-month
+        label: 45 days end month
+        translations:
+            fr: { label: 45 jours fin de mois }
+    -   value: 60-days
+        label: 60 days
+        translations:
+            fr: { label: 60 jours }
+    -   value: 60-days-end-month
+        label: 60 days end month
+        translations:
+            fr: { label: 60 jours fin de mois }
+    -   value: 90-days
+        label: 90 days
+        translations:
+            fr: { label: 90 jours }
+    -   value: 90-days-end-month
+        label: 90 days end month
+        translations:
+            fr: { label: 90 jours fin de mois }
+
+partner_address_type:
+    -   value: billing
+        label: Billing
+        translations:
+            fr: { label: Facturation }
+    -   value: delivery
+        label: Belivery
+        translations:
+            fr: { label: Livraison }
+    -   value: personal
+        label: Personal
+        translations:
+            fr: { label: Personnelle }
     -   value: other
         label: Other
         translations:

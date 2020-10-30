@@ -17,5 +17,10 @@
                  public="false">
             <tag name="klipper_module_partner.personal_field_mapper" priority="100" />
         </service>
+
+        <service id="klipper_module_partner.orm.listener.personal_account"
+                 class="Klipper\Module\PartnerBundle\Doctrine\Listener\PersonalAccountSubscriber">
+            <tag name="doctrine.event_subscriber" />
+        </service>
     </services>
 </container>

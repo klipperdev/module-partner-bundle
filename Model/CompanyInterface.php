@@ -12,7 +12,7 @@
 namespace Klipper\Module\PartnerBundle\Model;
 
 use Klipper\Component\DoctrineChoice\Model\ChoiceInterface;
-use Klipper\Component\Model\Traits\NameableInterface;
+use Klipper\Component\Model\Traits\SimpleNameableInterface;
 
 /**
  * Company interface.
@@ -20,7 +20,7 @@ use Klipper\Component\Model\Traits\NameableInterface;
  * @author François Pluchino <francois.pluchino@klipper.dev>
  */
 interface CompanyInterface extends
-    NameableInterface
+    SimpleNameableInterface
 {
     public function getSiret(): ?string;
 

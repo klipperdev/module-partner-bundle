@@ -18,7 +18,7 @@ use Klipper\Component\DoctrineChoice\Validator\Constraints\EntityDoctrineChoice;
 use Klipper\Component\Geocoder\Model\Traits\AddressTrait;
 use Klipper\Component\Model\Traits\NameableTrait;
 use Klipper\Component\Model\Traits\OrganizationalRequiredTrait;
-use Klipper\Component\Model\Traits\OwnerableTrait;
+use Klipper\Component\Model\Traits\OwnerableOptionalTrait;
 use Klipper\Component\Model\Traits\TimestampableTrait;
 use Klipper\Component\Model\Traits\UserTrackableTrait;
 use Klipper\Module\PartnerBundle\Model\Traits\PersonTrait;
@@ -34,7 +34,7 @@ abstract class AbstractAccount implements AccountInterface
     use AddressTrait;
     use NameableTrait;
     use OrganizationalRequiredTrait;
-    use OwnerableTrait;
+    use OwnerableOptionalTrait;
     use PersonTrait;
     use TimestampableTrait;
     use UserTrackableTrait;

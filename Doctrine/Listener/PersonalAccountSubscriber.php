@@ -49,7 +49,7 @@ class PersonalAccountSubscriber implements EventSubscriber
         $uow = $em->getUnitOfWork();
         $changeSet = $uow->getEntityChangeSet($object);
 
-        if ($object instanceof AccountInterface) {
+        if ($object instanceof AccountInterface && $object->isPersonalAccount()) {
             if ($create || isset($changeSet['firstName']) || isset($changeSet['lastName'])) {
                 $object->setName($object->getFullName());
 

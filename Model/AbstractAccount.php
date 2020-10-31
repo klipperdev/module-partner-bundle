@@ -83,7 +83,7 @@ abstract class AbstractAccount implements AccountInterface
      *     fetch="EXTRA_LAZY",
      *     cascade={"persist", "remove"}
      * )
-     * @ORM\JoinColumn(name="contact_id", referencedColumnName="id")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      *
      * @Serializer\MaxDepth(1)
      * @Serializer\Expose

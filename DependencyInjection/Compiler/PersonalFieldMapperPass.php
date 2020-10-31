@@ -30,9 +30,9 @@ class PersonalFieldMapperPass implements CompilerPassInterface
         }
 
         $def = $container->getDefinition('klipper_module_partner.orm.listener.merge_personal_account');
-        $mappers = $this->findTags($container, 'klipper_module_partner.personal_field_mapper', $def->getArgument(1));
+        $mappers = $this->findTags($container, 'klipper_module_partner.personal_field_mapper', $def->getArgument(2));
 
-        $def->replaceArgument(1, $mappers);
+        $def->replaceArgument(2, $mappers);
     }
 
     /**

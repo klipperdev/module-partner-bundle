@@ -10,6 +10,7 @@
                  class="Klipper\Module\PartnerBundle\Doctrine\Listener\MergePersonalAccountSubscriber">
             <tag name="doctrine.event_subscriber" />
             <argument type="service" id="klipper_resource.object_factory" />
+            <argument type="service" id="translator" />
             <argument type="collection" />
         </service>
 

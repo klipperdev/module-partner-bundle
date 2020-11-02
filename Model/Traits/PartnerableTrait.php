@@ -30,7 +30,7 @@ trait PartnerableTrait
     /**
      * @ORM\ManyToOne(
      *     targetEntity="Klipper\Module\PartnerBundle\Model\AccountInterface",
-     *     fetch="EXTRA_LAZY"
+     *     fetch="EAGER"
      * )
      *
      * @Assert\Expression(
@@ -38,7 +38,6 @@ trait PartnerableTrait
      *     message="klipper_partner.patnerable.account_or_contact_required"
      * )
      *
-     * @Serializer\Type("AssociationId")
      * @Serializer\Expose
      */
     protected ?AccountInterface $account = null;
@@ -46,7 +45,7 @@ trait PartnerableTrait
     /**
      * @ORM\ManyToOne(
      *     targetEntity="Klipper\Module\PartnerBundle\Model\ContactInterface",
-     *     fetch="EXTRA_LAZY"
+     *     fetch="EAGER"
      * )
      *
      * @Assert\Expression(
@@ -54,7 +53,6 @@ trait PartnerableTrait
      *     message="klipper_partner.patnerable.account_or_contact_required"
      * )
      *
-     * @Serializer\Type("AssociationId")
      * @Serializer\Expose
      */
     protected ?ContactInterface $contact = null;

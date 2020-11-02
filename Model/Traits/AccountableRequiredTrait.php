@@ -28,12 +28,11 @@ trait AccountableRequiredTrait
     /**
      * @ORM\ManyToOne(
      *     targetEntity="Klipper\Module\PartnerBundle\Model\AccountInterface",
-     *     fetch="EXTRA_LAZY"
+     *     fetch="EAGER"
      * )
      *
      * @Assert\NotNull
      *
-     * @Serializer\Type("AssociationId")
      * @Serializer\Expose
      */
     protected ?AccountInterface $account = null;

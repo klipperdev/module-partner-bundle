@@ -28,12 +28,11 @@ trait ContactableRequiredTrait
     /**
      * @ORM\ManyToOne(
      *     targetEntity="Klipper\Module\PartnerBundle\Model\ContactInterface",
-     *     fetch="EXTRA_LAZY"
+     *     fetch="EAGER"
      * )
      *
      * @Assert\NotNull
      *
-     * @Serializer\Type("AssociationId")
      * @Serializer\Expose
      */
     protected ?ContactInterface $contact = null;

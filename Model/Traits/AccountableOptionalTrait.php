@@ -27,10 +27,9 @@ trait AccountableOptionalTrait
     /**
      * @ORM\ManyToOne(
      *     targetEntity="Klipper\Module\PartnerBundle\Model\AccountInterface",
-     *     fetch="EXTRA_LAZY"
+     *     fetch="EAGER"
      * )
      *
-     * @Serializer\Type("AssociationId")
      * @Serializer\Expose
      */
     protected ?AccountInterface $account = null;

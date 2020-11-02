@@ -27,10 +27,9 @@ trait ContactableOptionalTrait
     /**
      * @ORM\ManyToOne(
      *     targetEntity="Klipper\Module\PartnerBundle\Model\ContactInterface",
-     *     fetch="EXTRA_LAZY"
+     *     fetch="EAGER"
      * )
      *
-     * @Serializer\Type("AssociationId")
      * @Serializer\Expose
      */
     protected ?ContactInterface $contact = null;

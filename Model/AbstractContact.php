@@ -53,7 +53,7 @@ abstract class AbstractContact implements ContactInterface
     /**
      * @ORM\ManyToOne(
      *     targetEntity="Klipper\Module\PartnerBundle\Model\AccountInterface",
-     *     fetch="EXTRA_LAZY"
+     *     fetch="EAGER"
      * )
      *
      * @Assert\Expression(
@@ -61,9 +61,7 @@ abstract class AbstractContact implements ContactInterface
      *     message="This value should not be null."
      * )
      *
-     * @Serializer\Type("AssociationId")
      * @Serializer\Expose
-     * @Serializer\ReadOnly
      */
     protected ?AccountInterface $account = null;
 

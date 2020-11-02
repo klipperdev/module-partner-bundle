@@ -28,6 +28,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Account model.
  *
  * @author François Pluchino <francois.pluchino@klipper.dev>
+ *
+ * @Serializer\ExclusionPolicy("all")
  */
 abstract class AbstractAccount implements AccountInterface
 {

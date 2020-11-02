@@ -38,9 +38,8 @@ trait PartnerableTrait
      *     message="klipper_partner.patnerable.account_or_contact_required"
      * )
      *
-     * @Serializer\Type("Relation")
+     * @Serializer\Type("AssociationId")
      * @Serializer\Expose
-     * @Serializer\ReadOnly
      */
     protected ?AccountInterface $account = null;
 
@@ -55,9 +54,8 @@ trait PartnerableTrait
      *     message="klipper_partner.patnerable.account_or_contact_required"
      * )
      *
-     * @Serializer\Type("Relation")
+     * @Serializer\Type("AssociationId")
      * @Serializer\Expose
-     * @Serializer\ReadOnly
      */
     protected ?ContactInterface $contact = null;
 }

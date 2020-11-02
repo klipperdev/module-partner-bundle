@@ -44,7 +44,7 @@ abstract class AbstractContact implements ContactInterface
      *     cascade={"persist", "remove"}
      * )
      *
-     * @Serializer\Type("Relation")
+     * @Serializer\Type("AssociationId")
      * @Serializer\Expose
      * @Serializer\ReadOnly
      */
@@ -61,7 +61,7 @@ abstract class AbstractContact implements ContactInterface
      *     message="This value should not be null."
      * )
      *
-     * @Serializer\Type("Relation")
+     * @Serializer\Type("AssociationId")
      * @Serializer\Expose
      * @Serializer\ReadOnly
      */

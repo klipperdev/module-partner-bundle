@@ -33,9 +33,8 @@ trait ContactableRequiredTrait
      *
      * @Assert\NotNull
      *
-     * @Serializer\Type("Relation")
+     * @Serializer\Type("AssociationId")
      * @Serializer\Expose
-     * @Serializer\ReadOnly
      */
     protected ?ContactInterface $contact = null;
 }

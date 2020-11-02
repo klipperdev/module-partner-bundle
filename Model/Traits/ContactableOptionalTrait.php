@@ -30,9 +30,8 @@ trait ContactableOptionalTrait
      *     fetch="EXTRA_LAZY"
      * )
      *
-     * @Serializer\Type("Relation")
+     * @Serializer\Type("AssociationId")
      * @Serializer\Expose
-     * @Serializer\ReadOnly
      */
     protected ?ContactInterface $contact = null;
 }

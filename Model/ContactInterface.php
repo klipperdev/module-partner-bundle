@@ -38,4 +38,11 @@ interface ContactInterface extends
     public function setPersonalAccount(?AccountInterface $personalAccount);
 
     public function getPersonalAccount(): ?AccountInterface;
+
+    /**
+     * @return static
+     */
+    public function setTitle(?string $title);
+
+    public function getTitle(): ?string;
 }

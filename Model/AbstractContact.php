@@ -65,6 +65,16 @@ abstract class AbstractContact implements ContactInterface
      */
     protected ?AccountInterface $account = null;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @Assert\Type(type="string")
+     * @Assert\Length(max=255)
+     *
+     * @Serializer\Expose
+     */
+    protected ?string $title = null;
+
     public function getPersonalAccount(): ?AccountInterface
     {
         return $this->personalAccount;
@@ -75,5 +85,17 @@ abstract class AbstractContact implements ContactInterface
         $this->personalAccount = $personalAccount;
 
         return $this;
+    }
+
+    public function setTitle(?string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
     }
 }

@@ -26,6 +26,7 @@ contact.name.plural: Contacts
 contact.fields.first_name: First name
 contact.fields.full_name: Full name
 contact.fields.last_name: Last name
+contact.fields.website_url: Website URL
 contact.associations.account: Account
 contact.associations.personal_account: Personal account
 contact.associations.salutation: Salutation

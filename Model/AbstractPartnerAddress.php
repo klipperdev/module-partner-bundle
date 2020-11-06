@@ -43,7 +43,19 @@ abstract class AbstractPartnerAddress implements PartnerAddressInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @Assert\Type(type="string")
+     * @Assert\Length(max=255)
+     * @Assert\NotBlank
+     *
+     * @Serializer\Expose
+     */
+    protected ?string $label = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @Assert\Type(type="string")
      * @Assert\Length(min="0", max="255")
+     * @Assert\NotBlank
      *
      * @Serializer\Expose
      */
@@ -64,6 +76,7 @@ abstract class AbstractPartnerAddress implements PartnerAddressInterface
      *
      * @Assert\Type(type="string")
      * @Assert\Length(min="0", max="50")
+     * @Assert\NotBlank
      *
      * @Serializer\Expose
      */
@@ -74,6 +87,7 @@ abstract class AbstractPartnerAddress implements PartnerAddressInterface
      *
      * @Assert\Type(type="string")
      * @Assert\Length(min="0", max="128")
+     * @Assert\NotBlank
      *
      * @Serializer\Expose
      */
@@ -94,6 +108,7 @@ abstract class AbstractPartnerAddress implements PartnerAddressInterface
      *
      * @Assert\Country
      * @Assert\Length(max=3)
+     * @Assert\NotBlank
      *
      * @Serializer\Expose
      */
@@ -103,6 +118,7 @@ abstract class AbstractPartnerAddress implements PartnerAddressInterface
      * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface", fetch="EAGER")
      *
      * @EntityDoctrineChoice("partner_address_type")
+     * @Assert\NotBlank
      *
      * @Serializer\Expose
      */

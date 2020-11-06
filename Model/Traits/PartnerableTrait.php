@@ -34,7 +34,7 @@ trait PartnerableTrait
      * )
      *
      * @Assert\Expression(
-     *     expression="null == this.getAccount() and null == this.getContact()",
+     *     expression="!(null == this.getAccount() and null == this.getContact())",
      *     message="klipper_partner.patnerable.account_or_contact_required"
      * )
      *
@@ -49,7 +49,7 @@ trait PartnerableTrait
      * )
      *
      * @Assert\Expression(
-     *     expression="null == this.getAccount() and null == this.getContact()",
+     *     expression="!(null == this.getAccount() and null == this.getContact())",
      *     message="klipper_partner.patnerable.account_or_contact_required"
      * )
      *

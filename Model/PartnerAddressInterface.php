@@ -34,10 +34,17 @@ interface PartnerAddressInterface extends
     TimestampableInterface,
     UserTrackableInterface
 {
+    /**
+     * @return static
+     */
+    public function setType(?ChoiceInterface $deliveryMethod);
+
     public function getType(): ?ChoiceInterface;
 
     /**
      * @return static
      */
-    public function setType(?ChoiceInterface $deliveryMethod);
+    public function setReference(?string $reference);
+
+    public function getReference(): ?string;
 }

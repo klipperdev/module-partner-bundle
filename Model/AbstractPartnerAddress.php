@@ -51,6 +51,16 @@ abstract class AbstractPartnerAddress implements PartnerAddressInterface
     protected ?string $label = null;
 
     /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     *
+     * @Assert\Type(type="string")
+     * @Assert\Length(max=100)
+     *
+     * @Serializer\Expose
+     */
+    protected ?string $reference = null;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @Assert\Type(type="string")
@@ -124,15 +134,27 @@ abstract class AbstractPartnerAddress implements PartnerAddressInterface
      */
     protected ?ChoiceInterface $type = null;
 
-    public function getType(): ?ChoiceInterface
-    {
-        return $this->type;
-    }
-
     public function setType(?ChoiceInterface $type): self
     {
         $this->type = $type;
 
         return $this;
+    }
+
+    public function getType(): ?ChoiceInterface
+    {
+        return $this->type;
+    }
+
+    public function setReference(?string $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
     }
 }

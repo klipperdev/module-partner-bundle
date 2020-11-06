@@ -35,6 +35,7 @@ contact.associations.salutation: Salutation
 # Partner address
 partner_address.name: Address
 partner_address.name.plural: Addresses
+partner_address.fields.reference: Reference
 partner_address.associations.account: Account
 partner_address.associations.contact: Contact
 partner_address.associations.type: Type

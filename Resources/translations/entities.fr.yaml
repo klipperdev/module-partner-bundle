@@ -35,6 +35,7 @@ contact.associations.salutation: Civilité
 # Partner address
 partner_address.name: Adresse
 partner_address.name.plural: Adresses
+partner_address.fields.reference: Référence
 partner_address.associations.account: Compte
 partner_address.associations.contact: Contact
 partner_address.associations.type: Type

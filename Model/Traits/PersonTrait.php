@@ -36,7 +36,7 @@ trait PersonTrait
      * @ORM\Column(type="string", length=80, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="80")
+     * @Assert\Length(min=0, max=80)
      *
      * @Serializer\Expose
      */
@@ -46,7 +46,7 @@ trait PersonTrait
      * @ORM\Column(type="string", length=80, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="80")
+     * @Assert\Length(min=0, max=80)
      *
      * @Serializer\Expose
      */
@@ -56,7 +56,7 @@ trait PersonTrait
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="255")
+     * @Assert\Length(min=0, max=255)
      * @Assert\Email
      *
      * @Serializer\Expose
@@ -67,7 +67,7 @@ trait PersonTrait
      * @ORM\Column(type="string", length=80, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="80")
+     * @Assert\Length(min=0, max=80)
      * @AssertPhone
      *
      * @Serializer\Expose
@@ -78,7 +78,7 @@ trait PersonTrait
      * @ORM\Column(type="string", length=80, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="80")
+     * @Assert\Length(min=0, max=80)
      * @AssertPhone
      *
      * @Serializer\Expose
@@ -89,7 +89,7 @@ trait PersonTrait
      * @ORM\Column(type="string", length=80, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="80")
+     * @Assert\Length(min=0, max=80)
      * @AssertPhone
      *
      * @Serializer\Expose
@@ -100,7 +100,7 @@ trait PersonTrait
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="255")
+     * @Assert\Length(min=0, max=255)
      * @Assert\Url
      *
      * @Serializer\Expose

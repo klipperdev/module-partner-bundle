@@ -64,7 +64,7 @@ abstract class AbstractPartnerAddress implements PartnerAddressInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="255")
+     * @Assert\Length(min=0, max=255)
      * @Assert\NotBlank
      *
      * @Serializer\Expose
@@ -75,7 +75,7 @@ abstract class AbstractPartnerAddress implements PartnerAddressInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="255")
+     * @Assert\Length(min=0, max=255)
      *
      * @Serializer\Expose
      */
@@ -85,7 +85,7 @@ abstract class AbstractPartnerAddress implements PartnerAddressInterface
      * @ORM\Column(type="string", length=50, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="50")
+     * @Assert\Length(min=0, max=50)
      * @Assert\NotBlank
      *
      * @Serializer\Expose
@@ -96,7 +96,7 @@ abstract class AbstractPartnerAddress implements PartnerAddressInterface
      * @ORM\Column(type="string", length=128, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="128")
+     * @Assert\Length(min=0, max=128)
      * @Assert\NotBlank
      *
      * @Serializer\Expose
@@ -107,7 +107,7 @@ abstract class AbstractPartnerAddress implements PartnerAddressInterface
      * @ORM\Column(type="string", length=128, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="128")
+     * @Assert\Length(min=0, max=128)
      *
      * @Serializer\Expose
      */

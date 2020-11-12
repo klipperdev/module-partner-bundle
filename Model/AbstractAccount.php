@@ -15,6 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
 use Klipper\Component\DoctrineChoice\Model\ChoiceInterface;
 use Klipper\Component\DoctrineChoice\Validator\Constraints\EntityDoctrineChoice;
+use Klipper\Component\DoctrineExtensionsExtra\Mapping\Annotation\MetadataField;
 use Klipper\Component\Geocoder\Model\Traits\AddressTrait;
 use Klipper\Component\Model\Traits\NameableTrait;
 use Klipper\Component\Model\Traits\OrganizationalRequiredTrait;
@@ -187,6 +188,8 @@ abstract class AbstractAccount implements AccountInterface
      * @ORM\Column(type="float", nullable=true)
      *
      * @Assert\Type(type="float")
+     *
+     * @MetadataField(inputConfig={"scale"=0})
      *
      * @Serializer\Expose
      */

@@ -91,6 +91,7 @@ abstract class AbstractAccount implements AccountInterface
      * @Serializer\Type("AssociationId")
      * @Serializer\Expose
      * @Serializer\ReadOnly
+     * @Serializer\MaxDepth(1)
      */
     protected ?ContactInterface $personalContact = null;
 
@@ -199,6 +200,7 @@ abstract class AbstractAccount implements AccountInterface
      * @ORM\ManyToOne(targetEntity="Klipper\Module\PartnerBundle\Model\AccountInterface", fetch="EAGER")
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?AccountInterface $masterAccount = null;
 
@@ -226,6 +228,7 @@ abstract class AbstractAccount implements AccountInterface
      * @EntityDoctrineChoice("account_business_type")
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?ChoiceInterface $businessType = null;
 
@@ -235,6 +238,7 @@ abstract class AbstractAccount implements AccountInterface
      * @EntityDoctrineChoice("account_delivery_method")
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?ChoiceInterface $deliveryMethod = null;
 
@@ -244,6 +248,7 @@ abstract class AbstractAccount implements AccountInterface
      * @EntityDoctrineChoice("account_payment_terms")
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?ChoiceInterface $paymentTerms = null;
 
@@ -253,6 +258,7 @@ abstract class AbstractAccount implements AccountInterface
      * @EntityDoctrineChoice("account_purchase_payment_terms")
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?ChoiceInterface $purchasePaymentTerms = null;
 

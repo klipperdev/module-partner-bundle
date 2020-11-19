@@ -29,6 +29,7 @@ trait PersonTrait
      * @EntityDoctrineChoice("person_salutation")
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?ChoiceInterface $salutation = null;
 

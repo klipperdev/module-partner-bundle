@@ -34,6 +34,7 @@ trait ContactableRequiredTrait
      * @Assert\NotNull
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?ContactInterface $contact = null;
 }

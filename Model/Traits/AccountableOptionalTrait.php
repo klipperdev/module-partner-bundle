@@ -31,6 +31,7 @@ trait AccountableOptionalTrait
      * )
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?AccountInterface $account = null;
 }

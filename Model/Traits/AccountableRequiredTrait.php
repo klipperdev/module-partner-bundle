@@ -34,6 +34,7 @@ trait AccountableRequiredTrait
      * @Assert\NotNull
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?AccountInterface $account = null;
 }

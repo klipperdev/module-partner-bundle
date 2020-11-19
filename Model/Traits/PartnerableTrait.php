@@ -39,6 +39,7 @@ trait PartnerableTrait
      * )
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?AccountInterface $account = null;
 
@@ -54,6 +55,7 @@ trait PartnerableTrait
      * )
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?ContactInterface $contact = null;
 }

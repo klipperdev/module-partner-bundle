@@ -131,6 +131,7 @@ abstract class AbstractPartnerAddress implements PartnerAddressInterface
      * @Assert\NotBlank
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?ChoiceInterface $type = null;
 

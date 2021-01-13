@@ -30,10 +30,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 abstract class AbstractContact implements ContactInterface
 {
-    use PersonTrait;
     use AccountableOptionalTrait;
     use OrganizationalRequiredTrait;
     use OwnerableOptionalTrait;
+    use PersonTrait;
     use TimestampableTrait;
     use UserTrackableTrait;
 

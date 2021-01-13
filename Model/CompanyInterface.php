@@ -19,8 +19,7 @@ use Klipper\Component\Model\Traits\SimpleNameableInterface;
  *
  * @author François Pluchino <francois.pluchino@klipper.dev>
  */
-interface CompanyInterface extends
-    SimpleNameableInterface
+interface CompanyInterface extends SimpleNameableInterface
 {
     public function getSiret(): ?string;
 

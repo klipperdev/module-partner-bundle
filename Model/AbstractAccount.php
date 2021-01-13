@@ -190,7 +190,7 @@ abstract class AbstractAccount implements AccountInterface
      *
      * @Assert\Type(type="float")
      *
-     * @MetadataField(inputConfig={"scale"=0})
+     * @MetadataField(inputConfig={"scale": 0})
      *
      * @Serializer\Expose
      */

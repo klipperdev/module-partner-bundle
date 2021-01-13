@@ -31,11 +31,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 abstract class AbstractPartnerAddress implements PartnerAddressInterface
 {
-    use PartnerableTrait;
     use AddressTrait;
+    use EmailableTrait;
     use LabelableTrait;
     use OrganizationalRequiredTrait;
-    use EmailableTrait;
+    use PartnerableTrait;
     use TimestampableTrait;
     use UserTrackableTrait;
 

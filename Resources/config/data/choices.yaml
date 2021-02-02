@@ -25,6 +25,10 @@ account_delivery_method:
             fr: { label: Remise en main propre }
 
 account_payment_terms:
+    -   value: prepayment
+        label: Prepayment
+        translations:
+            fr: { label: Prépaiement }
     -   value: 0-day
         label: Immediate
         translations:

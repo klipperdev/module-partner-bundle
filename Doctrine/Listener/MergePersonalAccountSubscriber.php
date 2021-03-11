@@ -86,11 +86,11 @@ class MergePersonalAccountSubscriber implements EventSubscriber
 
                 $this->updatePersonalContact($em, $object, $personalContact);
             } elseif (null !== $object->getPersonalContact()) {
-                ListenerUtil::thrownError($this->trans('account.enterprise_account_cannot_attached_personal_contact'), $object);
+                ListenerUtil::thrownError($this->translator->trans('klipper_partner.orm_listener.account.enterprise_account_cannot_attached_personal_contact', [], 'validators'), $object);
             }
         } elseif ($object instanceof ContactInterface) {
             if (null !== $object->getPersonalAccount() && !$object->getPersonalAccount()->isPersonalAccount()) {
-                ListenerUtil::thrownError($this->trans('contact.personal_contact_cannot_attached_enterprise_account'), $object);
+                ListenerUtil::thrownError($this->translator->trans('klipper_partner.orm_listener.contact.personal_contact_cannot_attached_enterprise_account', [], 'validators'), $object);
             }
         }
     }
@@ -103,17 +103,17 @@ class MergePersonalAccountSubscriber implements EventSubscriber
         if ($object instanceof AccountInterface) {
             if (isset($changeSet['personalAccount'])) {
                 if ($changeSet['personalAccount'][0] && !$changeSet['personalAccount'][1]) {
-                    ListenerUtil::thrownError($this->trans('account.personal_account_conversion_invalid'), $object);
+                    ListenerUtil::thrownError($this->translator->trans('klipper_partner.orm_listener.account.personal_account_conversion_invalid', [], 'validators'), $object);
                 }
 
                 if (!$changeSet['personalAccount'][0] && $changeSet['personalAccount'][1]) {
-                    ListenerUtil::thrownError($this->trans('account.enterprise_account_conversion_invalid'), $object);
+                    ListenerUtil::thrownError($this->translator->trans('klipper_partner.orm_listener.account.enterprise_account_conversion_invalid', [], 'validators'), $object);
                 }
             }
 
             if ($object->isPersonalAccount()) {
                 if (isset($changeSet['personalContact']) && null !== $changeSet['personalContact'][0] && null === $changeSet['personalContact'][1]) {
-                    ListenerUtil::thrownError($this->trans('contact.personal_account_detached_invalid'), $object);
+                    ListenerUtil::thrownError($this->translator->trans('klipper_partner.orm_listener.contact.personal_account_detached_invalid', [], 'validators'), $object);
                 }
 
                 if (null !== $personalContact = $object->getPersonalContact()) {
@@ -122,7 +122,7 @@ class MergePersonalAccountSubscriber implements EventSubscriber
             }
         } elseif ($object instanceof ContactInterface) {
             if (isset($changeSet['personalAccount']) && null === $changeSet['personalAccount'][0] && null !== $changeSet['personalAccount'][1]) {
-                ListenerUtil::thrownError($this->trans('contact.personal_account_conversion_invalid'), $object);
+                ListenerUtil::thrownError($this->translator->trans('klipper_partner.orm_listener.contact.personal_account_conversion_invalid', [], 'validators'), $object);
             }
 
             if (null !== $personalAccount = $object->getPersonalAccount()) {
@@ -171,10 +171,5 @@ class MergePersonalAccountSubscriber implements EventSubscriber
                 $uow->computeChangeSet($meta, $account);
             }
         }
-    }
-
-    private function trans(string $message): string
-    {
-        return $this->translator->trans('klipper_partner.orm_listener.'.$message, [], 'validators');
     }
 }

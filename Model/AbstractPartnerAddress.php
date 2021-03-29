@@ -16,7 +16,6 @@ use JMS\Serializer\Annotation as Serializer;
 use Klipper\Component\DoctrineChoice\Model\ChoiceInterface;
 use Klipper\Component\DoctrineChoice\Validator\Constraints\EntityDoctrineChoice;
 use Klipper\Component\Geocoder\Model\Traits\AddressTrait;
-use Klipper\Component\Model\Traits\EmailableTrait;
 use Klipper\Component\Model\Traits\LabelableTrait;
 use Klipper\Component\Model\Traits\OrganizationalRequiredTrait;
 use Klipper\Component\Model\Traits\TimestampableTrait;
@@ -32,7 +31,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 abstract class AbstractPartnerAddress implements PartnerAddressInterface
 {
     use AddressTrait;
-    use EmailableTrait;
     use LabelableTrait;
     use OrganizationalRequiredTrait;
     use PartnerableTrait;
@@ -135,6 +133,17 @@ abstract class AbstractPartnerAddress implements PartnerAddressInterface
      */
     protected ?ChoiceInterface $type = null;
 
+    /**
+     * @ORM\Column(type="string", length=180, nullable=true)
+     *
+     * @Assert\Email
+     * @Assert\Type(type="string")
+     * @Assert\Length(max=180)
+     *
+     * @Serializer\Expose
+     */
+    protected ?string $email = null;
+
     public function setType(?ChoiceInterface $type): self
     {
         $this->type = $type;
@@ -157,5 +166,17 @@ abstract class AbstractPartnerAddress implements PartnerAddressInterface
     public function getReference(): ?string
     {
         return $this->reference;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
     }
 }

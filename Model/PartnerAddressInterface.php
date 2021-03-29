@@ -37,7 +37,7 @@ interface PartnerAddressInterface extends
     /**
      * @return static
      */
-    public function setType(?ChoiceInterface $deliveryMethod);
+    public function setType(?ChoiceInterface $type);
 
     public function getType(): ?ChoiceInterface;
 

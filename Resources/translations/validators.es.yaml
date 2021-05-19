@@ -1,0 +1,7 @@
+klipper_partner.patnerable.account_or_contact_required: 'Se requiere una cuenta o un contacto'
+klipper_partner.orm_listener.account.personal_account_conversion_invalid: 'Una cuenta personal no se puede convertir en cuenta de empresa'
+klipper_partner.orm_listener.account.enterprise_account_conversion_invalid: 'Una cuenta de empresa no se puede convertir en cuenta personal'
+klipper_partner.orm_listener.account.enterprise_account_cannot_attached_personal_contact: 'Una cuenta empresa no se puede asociar a una cuenta personal'
+klipper_partner.orm_listener.contact.personal_account_conversion_invalid: 'Un contacto de una cuenta personal no se puede convertir en contacto'
+klipper_partner.orm_listener.contact.personal_account_detached_invalid: 'Un contacto de una cuenta personal no se puede desenlazar de una cuenta'
+klipper_partner.orm_listener.contact.personal_contact_cannot_attached_enterprise_account: 'Un contacto personal no se puede enlazar a una cuenta de empresa'

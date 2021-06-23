@@ -25,7 +25,7 @@ interface AccountableInterface
     /**
      * @return static
      */
-    public function setAccount(?AccountInterface $masterAccount);
+    public function setAccount(?AccountInterface $account);
 
     /**
      * @return null|int|string

@@ -47,7 +47,7 @@ abstract class AbstractContact implements ContactInterface
      * @Serializer\Type("AssociationId")
      * @Serializer\Expose
      * @Serializer\MaxDepth(1)
-     * @Serializer\ReadOnly
+     * @Serializer\ReadOnlyProperty
      */
     protected ?AccountInterface $personalAccount = null;
 

@@ -26,8 +26,7 @@ trait AccountableOptionalTrait
 
     /**
      * @ORM\ManyToOne(
-     *     targetEntity="Klipper\Module\PartnerBundle\Model\AccountInterface",
-     *     fetch="EAGER"
+     *     targetEntity="Klipper\Module\PartnerBundle\Model\AccountInterface"
      * )
      *
      * @Serializer\Expose

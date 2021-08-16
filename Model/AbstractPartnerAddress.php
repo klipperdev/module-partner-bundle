@@ -123,7 +123,9 @@ abstract class AbstractPartnerAddress implements PartnerAddressInterface
     protected ?string $country = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface"
+     * )
      *
      * @EntityDoctrineChoice("partner_address_type")
      * @Assert\NotBlank

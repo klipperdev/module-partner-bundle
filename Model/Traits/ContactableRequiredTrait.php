@@ -27,8 +27,7 @@ trait ContactableRequiredTrait
 
     /**
      * @ORM\ManyToOne(
-     *     targetEntity="Klipper\Module\PartnerBundle\Model\ContactInterface",
-     *     fetch="EAGER"
+     *     targetEntity="Klipper\Module\PartnerBundle\Model\ContactInterface"
      * )
      *
      * @Assert\NotNull

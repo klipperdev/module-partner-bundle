@@ -29,8 +29,7 @@ trait PartnerableTrait
 
     /**
      * @ORM\ManyToOne(
-     *     targetEntity="Klipper\Module\PartnerBundle\Model\AccountInterface",
-     *     fetch="EAGER"
+     *     targetEntity="Klipper\Module\PartnerBundle\Model\AccountInterface"
      * )
      *
      * @Assert\Expression(
@@ -45,8 +44,7 @@ trait PartnerableTrait
 
     /**
      * @ORM\ManyToOne(
-     *     targetEntity="Klipper\Module\PartnerBundle\Model\ContactInterface",
-     *     fetch="EAGER"
+     *     targetEntity="Klipper\Module\PartnerBundle\Model\ContactInterface"
      * )
      *
      * @Assert\Expression(

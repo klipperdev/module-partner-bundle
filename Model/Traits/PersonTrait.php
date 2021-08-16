@@ -24,7 +24,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 trait PersonTrait
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface"
+     * )
      *
      * @EntityDoctrineChoice("person_salutation")
      *

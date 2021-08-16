@@ -83,7 +83,6 @@ abstract class AbstractAccount implements AccountInterface
      * @ORM\OneToOne(
      *     targetEntity="Klipper\Module\PartnerBundle\Model\ContactInterface",
      *     inversedBy="personalAccount",
-     *     fetch="EXTRA_LAZY",
      *     cascade={"persist", "remove"}
      * )
      * @ORM\JoinColumn(onDelete="CASCADE")
@@ -197,7 +196,9 @@ abstract class AbstractAccount implements AccountInterface
     protected ?float $annualRevenue = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Module\PartnerBundle\Model\AccountInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Module\PartnerBundle\Model\AccountInterface"
+     * )
      *
      * @Serializer\Expose
      * @Serializer\MaxDepth(1)
@@ -223,7 +224,9 @@ abstract class AbstractAccount implements AccountInterface
     protected bool $supplier = false;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface"
+     * )
      *
      * @EntityDoctrineChoice("account_business_type")
      *
@@ -233,7 +236,9 @@ abstract class AbstractAccount implements AccountInterface
     protected ?ChoiceInterface $businessType = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface"
+     * )
      *
      * @EntityDoctrineChoice("account_delivery_method")
      *
@@ -243,7 +248,9 @@ abstract class AbstractAccount implements AccountInterface
     protected ?ChoiceInterface $deliveryMethod = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface"
+     * )
      *
      * @EntityDoctrineChoice("account_payment_terms")
      *
@@ -253,7 +260,9 @@ abstract class AbstractAccount implements AccountInterface
     protected ?ChoiceInterface $paymentTerms = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface"
+     * )
      *
      * @EntityDoctrineChoice("account_purchase_payment_terms")
      *
